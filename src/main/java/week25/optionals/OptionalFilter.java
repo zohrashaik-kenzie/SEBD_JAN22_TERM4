@@ -1,4 +1,4 @@
-package optionals;
+package week25.optionals;
 
 import java.util.Optional;
 import java.util.function.Predicate;

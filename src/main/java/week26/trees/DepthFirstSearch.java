@@ -37,7 +37,7 @@ public class DepthFirstSearch {
         TreeNode<String> fifthNode = new TreeNode<>("5", firstNode);
         TreeNode<String> sixthNode = new TreeNode<>("6", secondNode);
 
-        boolean found = traverseDFS("7", rootNode);
+        boolean found = traverseDFS("2", rootNode);
         System.out.println("Found = " + found);
 
     }

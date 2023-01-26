@@ -34,11 +34,11 @@ public class EmployeeStream {
     }
 
     public void convertStreamToMap(){
-        Map<String, Integer> tenured = stream
+        Map<String, String> tenured = stream
                 .filter(employee -> employee != null)
-                .collect(Collectors.toMap(Employee::getFirstName, Employee::getTenure));
-        for (Map.Entry<String, Integer> entry : tenured.entrySet()) {
-            System.out.println(entry.getKey() + ":" + entry.getValue().toString());
+                .collect(Collectors.toMap(Employee::getLastName, Employee::getFirstName));
+        for (Map.Entry<String, String> entry : tenured.entrySet()) {
+            System.out.println(entry.getKey() + ":" + entry.getValue());
         }
 
     }

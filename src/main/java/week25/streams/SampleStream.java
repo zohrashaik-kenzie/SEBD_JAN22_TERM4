@@ -3,18 +3,19 @@ package week25.streams;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class SampleStream {
 
     public static void main(String[] args) {
-//
+
 //        CreateStream stream = new CreateStream();
 //        stream.createStreamFromNumbers();
 //        stream.printStream();
-//
+////
 //        stream.createStreamFromArray(new Integer[]{10,11,15,17,18});
 //        stream.printStream();
-////
+//////
 //        List<Integer> list = new ArrayList<>();
 //
 //        for(int i = 100; i< 110; i++){
@@ -22,54 +23,56 @@ public class SampleStream {
 //        }
 //        stream.createStreamFromList(list);
 //        stream.printStream();
-////
+//////
 //        stream.createStreamFromGenerate(20);
 //        //stream.printStream();
+////
 //
-//        //stream.collectToList();
+//       // stream.collectToList();
 //        stream.collectToArray();
 //
-        Employee employee1 = new Employee("Zohra","Shaik",3);
-        Employee employee2 = new Employee("Zack", "Orwick", 2);
-        Employee employee3 = new Employee("Chi","Nguyen-Rettig",10);
-        Employee employee4 = new Employee("Ibrahim","Sulayman",1);
-
-        List<Employee> employees = new ArrayList<>();
-        employees.add(employee1);
-        employees.add(employee2);
-        employees.add(employee3);
-        employees.add(employee4);
-
-        EmployeeStream eStream = new EmployeeStream(employees);
-       // eStream.printStream();
+//        Employee employee1 = new Employee("Zohra","Shaik",3);
+//        Employee employee2 = new Employee("Claire", "Munds", 2);
+//        Employee employee3 = new Employee("Chi","Nguyen-Rettig",10);
+//        Employee employee4 = new Employee("Ibrahim","Sulayman",1);
 //
+//        List<Employee> employees = new ArrayList<>();
+//        employees.add(employee1);
+//        employees.add(employee2);
+//        employees.add(employee3);
+//        employees.add(employee4);
+//
+//        EmployeeStream eStream = new EmployeeStream(employees);
+        //eStream.printStream();
+
          //eStream.convertStreamToArray();
-         // eStream.convertStreamToList();
-         //eStream.convertStreamToMap();
+         //eStream.convertStreamToList();
+        // eStream.convertStreamToMap();
 //
-        //    eStream.groupBy();
-        // eStream.groupByConcurrent();
+          //  eStream.groupBy();
+       //  eStream.groupByConcurrent();
+
           List<String> names = new ArrayList<>();
           names.add( "Ruby Jane");
           names.add("Zee Jane");
           names.add("Quinn");
           names.add("Joe" );
           names.add ("Joanne");
-         names.add ("Mary Jane");
+          names.add ("Mary Jane");
 
           //intermediate operations
           //filter
-          System.out.println("Fitlered names:");
-          names.stream().filter((s) -> s.contains("J"))
+          System.out.println("Filtered names:");
+          names.stream().filter((s) -> s.startsWith("J"))
                 .forEach(System.out::println);
-
-         //sorted
+//
+//         //sorted
         System.out.println("Sorted names in Upper Case:");
         names.stream().sorted()
                 .map(String::toUpperCase)
                 .forEach(System.out::println);
-//
-//        //terminal operations
+////
+////        //terminal operations
         boolean matchedResult = names.stream()
                 .anyMatch((s) -> s.startsWith("J")); //true
 
@@ -79,28 +82,28 @@ public class SampleStream {
                 .allMatch((s) -> s.startsWith("J")); //false
 
         System.out.println(matchedResult);
-
+//
         matchedResult = names.stream()
                 .noneMatch((s) -> s.startsWith("J")); //false
 
         System.out.println(matchedResult);
-
-//        //count
-//        System.out.println(matchedResult);
 //
+////        //count
+////        System.out.println(matchedResult);
+////
         long totalMatched = names.stream()
                 .filter((s) -> s.startsWith("J"))
                 .count();
 
         System.out.println("Matched Names total: " + totalMatched);
-//
-        //reduce
+////
+//        //reduce
         Optional<String> reduced = names.stream()
                 .reduce((s1,s2) -> s1 + "#" + s2);
 
-        reduced.ifPresent(System.out::println);
-//
-//        //short-circuit operations
+       reduced.ifPresent(System.out::println);
+////
+////        //short-circuit operations
         String firstMatchedName = names.stream()
                 .filter((s) -> s.startsWith("J"))
                 .findFirst()
@@ -108,14 +111,14 @@ public class SampleStream {
 //
         System.out.println("First name that starts with J is");
         System.out.println(firstMatchedName);
-//
-//        //stateless
-//
-        Optional<String> firstJane =  names.stream()
+////
+////        //stateless
+////
+        List<String> firstJane =  names.stream()
                 // Stateless - filter
                 .filter(name -> {
                     System.out.println("filter " + name);
-                    return name.contains("Jane");
+                    return name.contains("xyz");
                     // Stateless - map
                 }).map(name -> {
                     System.out.println("map " + name);
@@ -124,8 +127,8 @@ public class SampleStream {
                 }).sorted((name1, name2) -> {
                     System.out.println(String.format("sorted %s , %s", name1, name2));
                     return name1.compareTo(name2);
-                }).findFirst();
-        System.out.println(firstJane);
+                }).collect(Collectors.toList());
+       System.out.println(firstJane);
    }
 
 }

@@ -17,7 +17,7 @@ public class CreateStream {
     }
 
     public void createStreamFromNumbers(){
-        this.stream = Stream.of(1,2,3,4,5,6,7,8,9);
+        this.stream = Stream.of(2,2,4,5,12,6,21,32,14,63);
     }
 
     public void createStreamFromArray(Integer[] array){

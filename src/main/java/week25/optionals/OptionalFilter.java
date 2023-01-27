@@ -12,9 +12,9 @@ public class OptionalFilter {
          return an Optional otherwise return an empty Optional. */
         /*----------------------------------------------------------*/
         Predicate<String> predicate = s -> s.contains("ATA");
-        System.out.println(nonEmptyOptional.filter(predicate)); //SEBD Advanced ATA Term 4
-        System.out.println(nonEmptyOptional.filter(s -> s.equals("ATA"))); //Optional.empty
-        System.out.println(emptyOptional.filter(predicate)); //Optional.empty
+        System.out.println(nonEmptyOptional.filter(predicate)); //
+        System.out.println(nonEmptyOptional.filter(s -> s.equals("ATA")));
+        System.out.println(emptyOptional.filter(predicate));
         System.out.println(nonEmptyOptional.filter(s -> s.startsWith("S"))); //
     }
 }

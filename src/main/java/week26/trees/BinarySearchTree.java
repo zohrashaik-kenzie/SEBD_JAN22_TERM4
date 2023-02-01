@@ -7,7 +7,8 @@ public class BinarySearchTree {
         int data;
         Node left;
         Node right;
-
+        //Represent the root of binary tree
+        public Node root;
         @Override
         public String toString() {
             return String.valueOf(data);
@@ -23,9 +24,9 @@ public class BinarySearchTree {
         }
     }
 
+
     //Represent the root of binary tree
     public Node root;
-
     public BinarySearchTree(){
         root = null;
     }

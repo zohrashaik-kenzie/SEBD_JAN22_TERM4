@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 
 public class OptionalStreamMap {
     public static void main(String[] args){
-        List<String> rawNumbers = Arrays.asList("1", null, "3", "2", "1", null); // [1, null, 3, 2, 1, null]
+        List<String> rawNumbers = Arrays.asList("1", "5", "3", "2", "1", "6"); // [1, null, 3, 2, 1, null]
 
         List<Optional<String>> numbers = rawNumbers
                 .stream()

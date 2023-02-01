@@ -19,6 +19,7 @@ public class Tree {
         System.out.println(thirdNode.toString());
         System.out.println(fourthNode.toString());
         System.out.println(fifthNode.toString());
+
         System.out.println("Is rootNode a root node? - " + rootNode.isRootNode());
         System.out.println("Is firstNode a root node? - " + firstNode.isRootNode());
         System.out.println("Is thirdNode a leaf node? - " + thirdNode.isLeafNode());

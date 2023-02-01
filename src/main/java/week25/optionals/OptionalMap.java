@@ -17,7 +17,7 @@ public class OptionalMap {
         Function<String, String> function = s -> s.substring(0, 1).length() == 0 ? null : s;
 
         System.out.println(nonEmptyOptional.map(function));
-        System.out.println(nonEmptyOptional.map(String::toLowerCase));
+        System.out.println(nonEmptyOptional.map(String::toLowerCase)); //
         System.out.println(emptyOptional.map(function));
     }
 }

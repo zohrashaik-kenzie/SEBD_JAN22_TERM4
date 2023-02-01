@@ -13,7 +13,7 @@ public class OptionalOrElseGet {
         /*----------------------------------------------------------*/
         Supplier<String> supplier = () -> "No more courses are offered this term";
 
-        System.out.println(nonEmptyOptional.orElseGet(supplier));
+        System.out.println(nonEmptyOptional.orElseGet(supplier));//
         System.out.println(emptyOptional.orElseGet(supplier));
     }
 }

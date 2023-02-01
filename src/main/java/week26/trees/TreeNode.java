@@ -8,10 +8,11 @@ import java.util.List;
  * Original Author: Jonathan, https://stackoverflow.com/a/22419453/14720622
  */
 public class TreeNode<T> {
-    private final List<TreeNode<T>> children;
-    private TreeNode<T> parent;
     private T data;
     private int depth;
+    private TreeNode<T> parent;
+    private final List<TreeNode<T>> children;
+
 
     public TreeNode(T data) {
         // a fresh node, without a parent reference

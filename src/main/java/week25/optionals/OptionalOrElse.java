@@ -9,7 +9,7 @@ public class OptionalOrElse {
 
         // orElse() - Return the value if present, otherwise return other.
         /*----------------------------------------------------------*/
-        System.out.println(nonEmptyOptional.orElse("No course Present"));
+        System.out.println(nonEmptyOptional.orElse("No course Present")); //
         System.out.println(emptyOptional.orElse("No course present"));
     }
 }

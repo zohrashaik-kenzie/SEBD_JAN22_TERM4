@@ -24,6 +24,7 @@ class TreeSetDemo {
         hashSet.add("One");
         hashSet.add("Two");
         hashSet.add("Four");
+        hashSet.add("Three");
 
         //Add Duplicate Element
         hashSet.add("Three");

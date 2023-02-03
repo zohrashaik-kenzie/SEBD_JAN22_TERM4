@@ -13,11 +13,6 @@ public class ExecuteServiceSubmitDemo {
 
             public void run() {
                 System.out.println("Asynchronous task");
-                try {
-                    Thread.sleep(1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
             }
         });
 

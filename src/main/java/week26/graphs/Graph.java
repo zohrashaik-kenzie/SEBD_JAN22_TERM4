@@ -1,14 +1,14 @@
 package week26.graphs;
 
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 class Graph {
     private int Vertices;   // No. of vertices
 
     // adjacency list declaration
     private LinkedList<Integer> adj_list[];
+
+    private Map<Integer, LinkedList<Integer>> adjMap;
 
     // graph Constructor: to initialize adjacency lists as per no of vertices
     Graph(int v) {

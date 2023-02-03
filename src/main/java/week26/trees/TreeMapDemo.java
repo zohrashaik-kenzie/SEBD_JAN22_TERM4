@@ -5,22 +5,29 @@ import java.util.TreeMap;
 public class TreeMapDemo {
     public static void main(String[] args) {
         // Creating TreeMap of even numbers
-        TreeMap<String, Integer> evenNumbers = new TreeMap<>();
+        TreeMap<Integer, String> evenNumbers = new TreeMap<>();
 
         // Using put()
-        evenNumbers.put("Two", 2);
-        evenNumbers.put("Four", 4);
+        evenNumbers.put( 2,"Two");
+        evenNumbers.put( 4, "Four");
 
         // Using putIfAbsent()
-        evenNumbers.putIfAbsent("Six", 6);
+        evenNumbers.putIfAbsent( 6, "Six");
         System.out.println("TreeMap of even numbers: " + evenNumbers);
 
         //Creating TreeMap of numbers
-        TreeMap<String, Integer> numbers = new TreeMap<>();
-        numbers.put("One", 1);
+        TreeMap<Integer, String> oddNumbers = new TreeMap<>();
+        oddNumbers.put(5, "Five");
+        oddNumbers.put(3, "Three");
+        oddNumbers.put(9, "Nine");
+        oddNumbers.put(7, "Seven");
+        oddNumbers.put(11, "Eleven");
+
+        System.out.println("TreeMap of odd numbers: " + oddNumbers);
 
         // Using putAll()
-        numbers.putAll(evenNumbers);
-        System.out.println("TreeMap of numbers: " + numbers);
+
+        oddNumbers.putAll(evenNumbers);
+        System.out.println("TreeMap of numbers: " + oddNumbers);
     }
 }

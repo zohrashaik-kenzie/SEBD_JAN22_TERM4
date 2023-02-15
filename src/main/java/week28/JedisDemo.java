@@ -12,18 +12,18 @@ import java.util.Set;
 public class JedisDemo {
 
     public static void main(String args[]) {
-//        JedisPool pool = new JedisPool("localhost", 6379);
+     //   JedisPool pool = new JedisPool("localhost", 6379);
 //        try (Jedis jedis = pool.getResource()) {
-//            String cachedClient = jedis.get("abcd");
+//            jedis.set("clientName", "Jedis");
+//            String cachedClient = jedis.get("clientName");
 //            System.out.println("Cached Client = " + cachedClient);
 //        }
 
-
         JedisPooled jedis = new JedisPooled("localhost", 6379);
         jedis.sadd("planets", "Venus");
-        String cachedPlanet = jedis.spop("planetsx");
+        String cachedPlanet = jedis.spop("planets");
         System.out.println("Cached Planet = " + cachedPlanet);
-//
+////
         //lists
         jedis.lpush("queue#tasks", "firstTask");
         jedis.lpush("queue#tasks", "secondTask");
@@ -33,8 +33,8 @@ public class JedisDemo {
 
         String task2 = jedis.rpop("queue#tasks");
         System.out.println("task = " + task2);
-//
-        //sets
+////
+//        //sets
         jedis.sadd("nicknames", "nickname#1");
         jedis.sadd("nicknames", "nickname#2");
         jedis.sadd("nicknames", "nickname#1");
@@ -43,7 +43,7 @@ public class JedisDemo {
         System.out.println("nicknames = " + nicknames);
         boolean exists = jedis.sismember("nicknames", "nickname#1");
        System.out.println("nickname#1 exists = " + exists);
-//
+////
         //hashes
         jedis.hset("user#1", "name", "Jacobus");
         jedis.hset("user#1", "job", "Facilitator");
@@ -56,7 +56,7 @@ public class JedisDemo {
         System.out.println("job = " + job);
         String term = fields.get("term");
         System.out.println("Term = " + term);
-////term
+//////term
 //        //sorted sets
         Map<String, Double> scores = new HashMap<>();
 
@@ -68,8 +68,8 @@ public class JedisDemo {
             jedis.zadd("ranking", playerScore.getValue(), playerScore.getKey());
         });
 
-        String player = jedis.zrevrange("ranking", 0, 1).iterator().next();
-        long rank = jedis.zrevrank("ranking", "PlayerOne");
+        String player = jedis.zrevrange("ranking", 1, 2).iterator().next();
+        long rank = jedis.zrevrank("ranking", player);
         System.out.println("Player = " + player);
         System.out.println("Ranking = " + rank);
 
